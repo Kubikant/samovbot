@@ -3,8 +3,8 @@ extends State
 @onready var animated_sprite: AnimatedSprite2D = $"../../AnimatedSprite2D"
 var player: CharacterBody2D
 
-@export var SPEED = 90.0
 @export var JUMP_VELOCITY = -220.0
+@export var SPEED = 90.0
 
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
@@ -30,10 +30,6 @@ func _physics_process(delta: float) -> void:
 	if not player.is_on_floor():
 		player.velocity += player.get_gravity() * delta
 
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and player.is_on_floor():
-		player.velocity.y = JUMP_VELOCITY
-
 
 	var direction := Input.get_axis("move_left", "move_right")
 	
@@ -41,6 +37,9 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.flip_h = false
 	elif direction < 0:
 		animated_sprite.flip_h = true
+		
+	if Input.is_action_just_pressed("jump") and player.is_on_floor():
+		player.velocity.y = JUMP_VELOCITY
 		
 	
 	if direction:

@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://b8y6bcmk4ke5q"]
 
 [ext_resource type="Texture2D" uid="uid://cp5vq0t34uq2r" path="res://assets/characters/bubak.png" id="1_4ra3w"]
-[ext_resource type="PackedScene" uid="uid://dpwhovv8whi30" path="res://scripts/Components/health_component.tscn" id="2_4ra3w"]
-[ext_resource type="PackedScene" uid="uid://cq5ng7y7foliu" path="res://scripts/Components/hitbox_component.tscn" id="3_4ra3w"]
+[ext_resource type="Script" uid="uid://c43yhea5iwteo" path="res://scripts/enemy.gd" id="1_5uy6h"]
+[ext_resource type="Script" uid="uid://csb20xubkxp62" path="res://scripts/hurtbox.gd" id="3_c4w8v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xwavj"]
 atlas = ExtResource("1_4ra3w")
@@ -23,25 +23,30 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 1.0
+"speed": 2.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ra3w"]
-radius = 3.0
-height = 12.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xwavj"]
+radius = 5.0
+height = 14.0
 
 [node name="Enemy" type="Node2D"]
+script = ExtResource("1_5uy6h")
+MAX_HEALTH = 50
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_md484")
 animation = &"Idle"
-frame_progress = 0.209776
+frame_progress = 0.0448369
 
-[node name="HealthComponent" parent="." instance=ExtResource("2_4ra3w")]
-MAX_HEALTH = 20
+[node name="HurtBox" type="Area2D" parent="AnimatedSprite2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_c4w8v")
+metadata/_custom_type_script = "uid://csb20xubkxp62"
 
-[node name="HitboxComponent" parent="." instance=ExtResource("3_4ra3w")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HurtBox"]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_xwavj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-position = Vector2(0, 2)
-shape = SubResource("CapsuleShape2D_4ra3w")
+[connection signal="area_entered" from="AnimatedSprite2D/HurtBox" to="AnimatedSprite2D/HurtBox" method="_on_area_entered"]

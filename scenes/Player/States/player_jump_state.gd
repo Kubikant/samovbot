@@ -8,8 +8,6 @@ func _ready():
 
 func Enter():
 	animated_sprite.play("Jump")
-	
-	
 func Update():
 	var direction := Input.get_axis("move_left", "move_right")
 	
@@ -17,5 +15,7 @@ func Update():
 		state_transition.emit("Walk")
 	if player.is_on_floor() and direction == 0:
 		state_transition.emit("Idle")
+	if Input.is_action_just_pressed("Attack"):
+		state_transition.emit("Attack")
 	
 		

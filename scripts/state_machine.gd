@@ -19,6 +19,7 @@ func _ready():
 func _process(_delta):
 	if current_state:
 		current_state.Update()
+
 		
 func change_state(new_state_name : String):
 	var new_state = states.get(new_state_name.to_lower())

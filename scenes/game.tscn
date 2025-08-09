@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://crjygcerm8mbj"]
+[gd_scene load_steps=9 format=4 uid="uid://crjygcerm8mbj"]
 
 [ext_resource type="PackedScene" uid="uid://b5q0ejn6cixph" path="res://scenes/background.tscn" id="1_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://cvyler8eeevvt" path="res://assets/tilesalelepsie.png" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://msnylc5q4k3g" path="res://assets/kubikant.png" id="2_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bxjbntdv6k56r" path="res://scenes/Player/player.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://b8y6bcmk4ke5q" path="res://scenes/enemy.tscn" id="5_iywne"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iywne"]
 texture = ExtResource("2_lbhrr")
@@ -323,3 +324,9 @@ position = Vector2(0, -23)
 offset = Vector2(0, -20)
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
+
+[node name="Enemy" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(313, 61)
+
+[node name="Enemy2" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(240, 60)
