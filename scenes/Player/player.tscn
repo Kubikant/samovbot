@@ -1,13 +1,13 @@
-[gd_scene load_steps=29 format=3 uid="uid://bxjbntdv6k56r"]
+[gd_scene load_steps=30 format=3 uid="uid://bxjbntdv6k56r"]
 
-[ext_resource type="Texture2D" uid="uid://d8khghkca8rd" path="res://assets/characters/player.png" id="2_g2els"]
-[ext_resource type="Texture2D" uid="uid://dmuu576knheyn" path="res://assets/characters/utopiafr.png" id="2_qhqgy"]
-[ext_resource type="Script" uid="uid://23dps8v3mk7k" path="res://scripts/state_machine.gd" id="4_dqkch"]
+[ext_resource type="Texture2D" uid="uid://d8khghkca8rd" path="res://scenes/Player/player.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://dmuu576knheyn" path="res://scenes/Player/player_attack.png" id="2_qhqgy"]
+[ext_resource type="Script" uid="uid://cyocboq4v1oir" path="res://Scripts/hitbox.gd" id="3_dl1wr"]
+[ext_resource type="Script" uid="uid://23dps8v3mk7k" path="res://Scripts/StateMachine/state_machine.gd" id="4_dqkch"]
 [ext_resource type="Script" uid="uid://bipyn8j5q0ex0" path="res://scenes/Player/States/player_walk_state.gd" id="5_hvfru"]
 [ext_resource type="Script" uid="uid://cydbujla4300" path="res://scenes/Player/States/player_idle_state.gd" id="5_uiqp4"]
 [ext_resource type="Script" uid="uid://cxostgbhxwibx" path="res://scenes/Player/States/player_jump_state.gd" id="6_a06cl"]
 [ext_resource type="Script" uid="uid://nxra817w0ahl" path="res://scenes/Player/States/player_attack_state.gd" id="7_dl1wr"]
-[ext_resource type="PackedScene" uid="uid://pwaljs62p7lh" path="res://scenes/weapon_sword.tscn" id="8_dl1wr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
 atlas = ExtResource("2_qhqgy")
@@ -104,7 +104,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Attack",
-"speed": 20.0
+"speed": 40.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -163,6 +163,10 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dl1wr"]
+radius = 6.0
+height = 20.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_3v2ag"]
 radius = 5.0
 
@@ -173,8 +177,19 @@ position = Vector2(1, -8)
 sprite_frames = SubResource("SpriteFrames_d2wvv")
 animation = &"Attack"
 autoplay = "Idle"
-frame = 5
-frame_progress = 1.0
+
+[node name="HitBox" type="Area2D" parent="AnimatedSprite2D"]
+position = Vector2(-1, 0)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("3_dl1wr")
+metadata/_custom_type_script = "uid://cyocboq4v1oir"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitBox"]
+position = Vector2(6, 2)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_dl1wr")
+disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
@@ -195,7 +210,3 @@ script = ExtResource("7_dl1wr")
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("5_uiqp4")
-
-[node name="WeaponSword" parent="." instance=ExtResource("8_dl1wr")]
-position = Vector2(5, -4)
-rotation = 0.788533

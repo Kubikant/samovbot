@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvyler8eeevvt"
-path="res://.godot/imported/tilesalelepsie.png-c26841ab6e1dab47cde9501a72aef767.ctex"
+uid="uid://dmuu576knheyn"
+path="res://.godot/imported/player_attack.png-f1a3f31c212bb56b961109713fb52983.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesalelepsie.png"
-dest_files=["res://.godot/imported/tilesalelepsie.png-c26841ab6e1dab47cde9501a72aef767.ctex"]
+source_file="res://scenes/Player/player_attack.png"
+dest_files=["res://.godot/imported/player_attack.png-f1a3f31c212bb56b961109713fb52983.ctex"]
 
 [params]
 

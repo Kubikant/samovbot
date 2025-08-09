@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmuu576knheyn"
-path="res://.godot/imported/utopiafr.png-cf0bf3a60f230f99f0a220b6829fd8b7.ctex"
+uid="uid://diep8gr2ytbq7"
+path="res://.godot/imported/sheep.png-8b8cd86b8428760487cf69c7697ecb0e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/utopiafr.png"
-dest_files=["res://.godot/imported/utopiafr.png-cf0bf3a60f230f99f0a220b6829fd8b7.ctex"]
+source_file="res://assets/sheep.png"
+dest_files=["res://.godot/imported/sheep.png-8b8cd86b8428760487cf69c7697ecb0e.ctex"]
 
 [params]
 

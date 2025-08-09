@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diep8gr2ytbq7"
-path="res://.godot/imported/sheep.png-42893d3bfe6f46a67e9e0184fe427845.ctex"
+uid="uid://cp5vq0t34uq2r"
+path="res://.godot/imported/enemy.png-a4a55a605b1b61b32f683da7af49827d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/sheep.png"
-dest_files=["res://.godot/imported/sheep.png-42893d3bfe6f46a67e9e0184fe427845.ctex"]
+source_file="res://scenes/Enemy/enemy.png"
+dest_files=["res://.godot/imported/enemy.png-a4a55a605b1b61b32f683da7af49827d.ctex"]
 
 [params]
 
