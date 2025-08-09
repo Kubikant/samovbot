@@ -20,7 +20,6 @@ region_enabled = true
 region_rect = Rect2(0, 0, 1280, 180)
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(1.1, 1)
 motion_mirroring = Vector2(320, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer5"]
@@ -32,7 +31,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 1280, 180)
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0.1, 1)
+motion_scale = Vector2(0.2, 1)
 motion_mirroring = Vector2(320, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
@@ -53,7 +52,6 @@ region_enabled = true
 region_rect = Rect2(0, 0, 1280, 180)
 
 [node name="ParallaxLayer6" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(1.2, 1)
 motion_mirroring = Vector2(320, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer6"]
