@@ -1,20 +1,19 @@
 extends State
 
-@onready var animated_sprite: AnimatedSprite2D = $"../../AnimatedSprite2D"
-@onready var hitbox: CollisionShape2D = $"../../AnimatedSprite2D/HitBox/CollisionShape2D"
-
-
+@onready var sprite_2d: Sprite2D = $"../../Sprite2D"
+@onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
+@onready var hitbox: CollisionShape2D = $"../../Sprite2D/HitBox/CollisionShape2D"
 
 func Enter():
 
-	if animated_sprite.flip_h == true:
+	if sprite_2d.flip_h == true:
 		hitbox.position.x =  -6
-	elif animated_sprite.flip_h == false:
+	elif sprite_2d.flip_h == false:
 		hitbox.position.x = 6
 
-	animated_sprite.play("Attack")
+	animation_player.play("Attack")
 	hitbox.disabled = false
-	await animated_sprite.animation_finished
+	await animation_player.animation_finished
 	hitbox.disabled = true
 	state_transition.emit("Idle")
 

@@ -1,9 +1,9 @@
 extends State
 
-@onready var animated_sprite: AnimatedSprite2D = $"../../AnimatedSprite2D"
+@onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 
 func Enter():
-	animated_sprite.play("Idle")
+	animation_player.play("Idle")
 	
 func Update():
 	

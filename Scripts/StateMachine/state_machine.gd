@@ -19,6 +19,8 @@ func _ready():
 func _process(_delta):
 	if current_state:
 		current_state.Update()
+		
+	print(current_state)
 
 		
 func change_state(new_state_name : String):
